@@ -6,6 +6,8 @@ from selenium.webdriver.common.by import By
 
 
 def google_search(search_phrase):
+    url = "https://www.google.com"
+
     print("# Scenario: verify the google search results")
     print("# open the browser")
     driver = webdriver.Chrome() # initializes the browser, lunches the driver
@@ -14,7 +16,7 @@ def google_search(search_phrase):
     #time.sleep(5)
 
     print("# open the website google.com")
-    driver.get("https://www.google.com")
+    driver.get(url)
     time.sleep(1)
 
     print("# enter 'selenium' ")
