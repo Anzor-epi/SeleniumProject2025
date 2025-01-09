@@ -16,8 +16,8 @@ from selenium.webdriver.common.by import By
 driver1 = webdriver.Chrome()
 driver1.get("https://www.amazon.com")
 
-#cart = driver1.find_element(By.XPATH, '//div[@id="nav-cart-count-container"]/span[2]')
-#cart.click()
+cart = driver1.find_element(By.XPATH, '//div[@id="nav-cart-count-container"]/span[2]')
+cart.click()
 
 search = driver1.find_element(By.XPATH, '//input[@id="twotabsearchtextbox"]')
 search.send_keys("black friday")
