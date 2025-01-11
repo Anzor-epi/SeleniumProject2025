@@ -53,7 +53,6 @@ driver.quit()
 print("selenium locators completed")
 
 
-
-
+# didn't
 #driver.find_element(By.NAME, 'q') we did it in google search
 #driver.find_element(By.TAG_NAME, 'input') hard to find unqie
