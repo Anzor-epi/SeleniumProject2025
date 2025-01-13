@@ -13,7 +13,7 @@ URL = "https://travel.agileway.net/login"
 
 uname = 'agileway'
 passwrd = 'testwise'
-
+flights_url = "https://travel.agileway.net/flights/start"
 # locators
 
 header_xpath = '//*[@id="container"]/h2'
@@ -21,6 +21,7 @@ username_id = 'username'
 password_id = 'password'
 remember_id = 'remember_me'
 sign_in_name = 'commit'
+flash_notice_id = 'flash_notice'
 
 print("Initializing the browser, with chrome options")
 chr_options = Options()
@@ -44,15 +45,31 @@ driver.find_element(By.ID, password_id).send_keys(passwrd)
 print("check remember me check box")
 checkbox = driver.find_element(By.ID, remember_id)
 checkbox.click()
-print(f"if remember me is checked: {checkbox.is_selected()}")
+print("verify the remember me check box is checked")
+print(f"is remember me checked: {checkbox.is_selected()}")
 assert checkbox.is_selected(), 'checked box verification failed!'
 
-print("verify the remember me check box is checked")
-
 print("check signin button is enabled")
+signin = driver.find_element(By.NAME, sign_in_name)
+print(f"is signin button enabled: {signin.is_enabled()}")
+assert signin.is_enabled(), 'Signin button is not enabled!'
 
 print("submit form")
+signin.click()
+time.sleep(2)
 
 print("verify expected url: https://travel.agileway.net/flights/start ")
+assert driver.current_url == 'https://travel.agileway.net/flights/start', 'signin failed flights page was not opened'
 
-print("verify that signin meassage is displayed")
+print("verify that signin message is displayed")
+msg = driver.find_element(By.ID, flash_notice_id).text
+assert msg == 'Signed in!', 'verification flash notice failed!'
+
+print('click on sign off')
+driver.find_element(By.LINK_TEXT, 'Sign off (agileway)').click()
+#driver.find_element(By.PARTIAL_LINK_TEXT, 'gn off (agileway)').click()
+
+print("verify flash notice is Signed out!")
+msg = driver.find_element(By.ID, flash_notice_id).text
+assert msg == 'Signed out!', 'signin off failed'
+time.sleep(5)
