@@ -56,7 +56,7 @@ assert signin.is_enabled(), 'Signin button is not enabled!'
 
 print("submit form")
 signin.click()
-time.sleep(2)
+time.sleep(5)
 
 print("verify expected url: https://travel.agileway.net/flights/start ")
 assert driver.current_url == 'https://travel.agileway.net/flights/start', 'signin failed flights page was not opened'
