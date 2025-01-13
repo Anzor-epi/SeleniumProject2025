@@ -31,13 +31,12 @@ print("ID of the current browser tab or window:", main_tab_handle)
 print(" # webDriver class method:  ")
 driver.back()
 print("current url", driver.current_url) # ' data:, '
-assert driver.current_url == 'data:,'
+assert driver.current_url == 'data:,'  # if no error correct
 
 driver.forward()
 time.sleep(1)
 disable_google_ads(driver)
 assert driver.current_url == 'https://demoqa.com/browser-windows', 'url verification failed on forward()'
-
 
 driver.refresh()
 time.sleep(2)
@@ -48,7 +47,6 @@ print("switching between tabs...")
 print("find the element, click on it, it should open the new tab")
 newtab_button = driver.find_element(By.XPATH, '//button[@id="tabButton"]')
 newtab_button.click()
-
 
 print("switch to the new tab: get all window handles, switch to id other than main tab id ")
 all_ids = driver.window_handles # list of all ID on the Chrome browser
