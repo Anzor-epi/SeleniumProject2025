@@ -72,6 +72,6 @@ driver.find_element(By.LINK_TEXT, 'Sign off (agileway)').click()
 print("verify flash notice is Signed out!")
 msg = driver.find_element(By.ID, flash_notice_id)
 assert msg.is_displayed
-print(f"flash notice text:{msg.text}")
+print(f"flash notice text: {msg.text}")
 assert msg.text == 'Signed out!', 'signin off failed'
 time.sleep(5)
