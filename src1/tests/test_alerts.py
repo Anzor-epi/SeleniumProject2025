@@ -1,5 +1,7 @@
 import time
 
+from click import prompt
+
 from src1.web_elements.form_elements import *
 
 URL = "https://demoqa.com/alerts"
@@ -51,6 +53,28 @@ assert confirm_result_msg.strip() == 'You selected Cancel', 'ERROR: confirmation
 time.sleep(0.5)
 
 print("********** Test case 2: Completed  ********")
+
+print("********** Test case 3: entering text and clicking Ok button on Alert********")
+print('# click on "click me" button for Input-Ok-Cencel case')
+click_me4_xpath = '//button[@id="promtButton"]'
+prompt_result_xpath = '//span[@id="promptResult"]'
+click_me4 = driver.find_element(By.XPATH, click_me4_xpath)
+click_me4.click()
+
+print('# enter "john doe" on the Alert window')
+alert_box = driver.switch_to.alert
+alert_box.send_keys('john doe')
+print("click Okay!")
+alert_box.accept() # clicking Okay on Alert tab
+time.sleep(0.5)
+
+print("# then verifying green text showing 'john doe' as part of the massage ") # same steps es before
+prompt_result_msg = driver.find_element(By.XPATH, prompt_result_xpath).text  # changed to promt_result_xpath
+print(f"confirmation result: '{prompt_result_msg}' ---- ")
+assert "john doe" in prompt_result_msg, 'ERROR: confirmation text verification FAILED!!'
+time.sleep(0.5)
+
+print("********** Test case 3: Completed  ********")
 
 print("********* Scenario 1: automating alert interaction completed ********")
 
