@@ -111,6 +111,7 @@ def enter_flights_details(driver, from_city, to_city):
     print("select destination: Sydney")
     destination = Select(driver.find_element(By.NAME, destination_name))
     destination.select_by_visible_text(to_city)
+    print("first_selected_option: ", destination.first_selected_option.text)  # returns one value
 
     print("Select departure month and year")
     departing = Select(driver.find_element(By.ID, 'departMonth'))
