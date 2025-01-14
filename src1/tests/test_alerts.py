@@ -33,7 +33,7 @@ print("********** Test case 1: Completed  ********")
 
 ########################################################
 
-print("********** Test case 2: getting text and clicking Ok button on Alert********")
+print("********** Test case 2: clicking Cancel button on Alert********")
 print('# click on "click me" button for Ok-Cencel case')
 confirm_button_xpath = '//button[@id="confirmButton"]'
 click_me3 = driver.find_element(By.XPATH, confirm_button_xpath)
