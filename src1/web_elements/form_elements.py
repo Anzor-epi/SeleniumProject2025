@@ -30,8 +30,8 @@ def initialize_browser():
 
 def open_website(driver,url):
     driver.get(url)
-    driver.maximize_window()
-    time.sleep(1)
+    time.sleep(0.5)
+    disable_google_ads(driver)
 
 
 def signin(driver, uname, passwrd):
@@ -143,5 +143,5 @@ def pay_ticket(driver):
     """ create steps in test files then transfer here """
     pass
 
-# Execution open test_webelements_forms
+# Execution open test_form_elements
 

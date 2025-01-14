@@ -1,6 +1,4 @@
-from selenium.webdriver.support.select import Select
-
-from src1.web_driver.webelements_forms import *
+from src1.web_elements.form_elements import *
 
 #URL = "https://demoqa.com/browser-windows"
 URL = "https://travel.agileway.net/login"
