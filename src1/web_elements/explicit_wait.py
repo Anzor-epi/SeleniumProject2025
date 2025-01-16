@@ -28,6 +28,12 @@ enable_5sec = wwait.until(expected_conditions.element_to_be_clickable((By.XPATH,
 #enable_5sec = WebDriverWait(driver,45).until(expected_conditions.visibility_of_element_located((By.XPATH, enable_5sec_xpath)))
 #enable_5sec = WebDriverWait(driver,60).until(expected_conditions.element_located_to_be_selected((By.XPATH, enable_5sec_xpath)))
 
+# fluent wait
+errors = [NoSuchElementException, ElementNotInteractableException]
+fwait = WebDriverWait(driver, 60, poll_frequency=0.3, ignored_exceptions=errors)
+enable_5sec2 = fwait.until(EC.element_to_be_clickable((By.XPATH, visible_5sec_xpath)))
+
+
 enable_5sec.click()
 print("element clicked...")
 time.sleep(10)
